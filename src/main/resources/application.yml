@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    name: ownDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1/test?useSSL=false&useUnicode=true&serverTimezone=Asia/Shanghai
+      username: root
+      password: 123456
+      initial-size: 1
+      max-active: 20
+  #redis配置信息
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    timeout: 500
+
+  #应用配置
+  application:
+    name: test
+
+  main:
+    allow-bean-definition-overriding: true
+
+mybatis-plus:
+  type-aliases-package: com.july.**.entity
+  type-enums-package: com.july.**.entity.enums
+  configuration:
+    default-enum-type-handler: com.baomidou.mybatisplus.extension.handlers.MybatisEnumTypeHandler
+
+cache:
+  type: redis
+
+server:
+  port: 8702
+  servlet:
+    context-path: /test
