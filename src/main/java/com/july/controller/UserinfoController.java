@@ -1,6 +1,6 @@
 package com.july.controller;
 
-
+import com.july.annotation.SysLog;
 import com.july.dto.UserLoginDto;
 import com.july.dto.UserRedisDto;
 import com.july.entity.Userinfo;
@@ -34,10 +34,12 @@ public class UserinfoController {
      * @author zqk
      * @since 2019/12/4
     */
+    @SysLog("登录")
     @PostMapping("/login")
     public Result login(@RequestBody UserLoginDto userLoginDto){
         return Result.ok(userinfoService.userInfoLogin(userLoginDto));
     }
+
 
     /**
      * @description 注册用户信息
